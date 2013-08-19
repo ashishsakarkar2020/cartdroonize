@@ -14,7 +14,9 @@ public final class R {
         public static int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static int menu_settings=0x7f070000;
+        public static int menu_settings=0x7f070002;
+        public static int picture_final=0x7f070001;
+        public static int picture_init=0x7f070000;
     }
     public static final class layout {
         public static int sandbox=0x7f030000;
@@ -24,8 +26,9 @@ public final class R {
     }
     public static final class string {
         public static int app_name=0x7f040000;
-        public static int hello_world=0x7f040001;
-        public static int menu_settings=0x7f040002;
+        public static int image_input=0x7f040002;
+        public static int image_output=0x7f040003;
+        public static int menu_settings=0x7f040001;
     }
     public static final class style {
         /** 
