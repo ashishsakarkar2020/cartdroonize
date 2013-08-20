@@ -130,8 +130,14 @@ public class Cartdroonize {
 		return rescaled_image;
 	}
 	
-	public void setImageMaxSize(int new_max_size){
-		image_max_size = new_max_size;
+	public void setImageMaxSize(int in_image_max_size){
+		/** 
+		 * Changes the max size of the images ti dusplay in the ImageView. This won't affect the size of the image itself.
+		 * @author Jascha Casadio 
+		 * @version 0.20130820
+		 * @param in_image_max_size: The new max size of the image.
+		 */
+		image_max_size = in_image_max_size;
 	}
 	
 }
