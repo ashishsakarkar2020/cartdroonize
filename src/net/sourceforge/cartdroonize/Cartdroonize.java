@@ -3,8 +3,6 @@ package net.sourceforge.cartdroonize;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
-import java.io.File;
-
 
 public class Cartdroonize {
 	
@@ -97,18 +95,6 @@ public class Cartdroonize {
 		 * @version 0.20130819
 		 * @param posterization_strength: The strength of the posterization effect.
 		 */
-	}
-	
-	private Bitmap readImage(String image_input_filename){
-		/** 
-		 * Reads and returns the image whose path was provided as input.
-		 * @author Jascha Casadio 
-		 * @version 0.20130819
-		 * @param image_input_filename: The path of the image filename.
-		 * @return The Bitmap of the image.
-		 */
-		File image_input_file = new File(image_input_filename);
-		return BitmapFactory.decodeFile(image_input_file.getAbsolutePath());
 	}
 	
 	private Bitmap rescaleImage(Bitmap image, int max_size){
