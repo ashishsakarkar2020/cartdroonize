@@ -10,15 +10,24 @@ public class Cartdroonize {
 	
 	private Bitmap image_input;
 	private Bitmap image_output;
+	private int image_max_size = 400;
 	
-	public Cartdroonize(String image_input_filename){
+	public Cartdroonize(){
 		/** 
 		 * Instantiates Cartdroonize.
 		 * @author Jascha Casadio 
 		 * @version 0.20130819
 		 * @param image_input_filename: The input image filename.
 		 */
-		image_input = readImage(image_input_filename);
+		//image_input = readImage(image_input_filename);
+	}
+	
+	public Cartdroonize(Bitmap image){
+		image_input = image;
+	}
+	
+	public Cartdroonize(int max_size){
+		setImageMaxSize(max_size);
 	}
 	
 	private void edgeDetection(){
@@ -59,6 +68,10 @@ public class Cartdroonize {
 		return rescaleImage(image_output, max_size);
 	}
 	
+	public int getImageMaxSize(){
+		return image_max_size;
+	}
+	
 	private void posterize(int posterization_strength){
 		/** 
 		 * Posterizes the input image with the given strength.
@@ -97,6 +110,10 @@ public class Cartdroonize {
 		
 		Bitmap rescaled_image = Bitmap.createScaledBitmap(image, scaled_width, scaled_height, true);
 		return rescaled_image;
+	}
+	
+	public void setImageMaxSize(int new_max_size){
+		image_max_size = new_max_size;
 	}
 	
 }

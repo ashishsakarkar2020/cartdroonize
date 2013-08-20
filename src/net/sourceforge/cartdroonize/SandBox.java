@@ -17,6 +17,7 @@ import android.widget.ImageView;
 public class SandBox extends Activity implements OnClickListener {
 	
 	private int max_size = 800;
+	Cartdroonize img = new Cartdroonize(max_size);
 	//private ImageView picture_init 	= (ImageView) this.findViewById(R.id.picture_init);
 	//private ImageView picture_final = (ImageView) this.findViewById(R.id.picture_final);
 	ImageView chosenImageView;
@@ -38,35 +39,18 @@ public class SandBox extends Activity implements OnClickListener {
 	
 	protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
 			super.onActivityResult(requestCode, resultCode, intent);
+			
 			if (resultCode == RESULT_OK) {
-			Uri imageFileUri = intent.getData();
-			Display currentDisplay = getWindowManager().getDefaultDisplay();
-			int dw = currentDisplay.getWidth();
-			int dh = currentDisplay.getHeight()/2 - 100;
-			try {
-			// Load up the image's dimensions not the image itself
-			BitmapFactory.Options bmpFactoryOptions = new BitmapFactory.Options();
-			bmpFactoryOptions.inJustDecodeBounds = true;
-			Bitmap bmp = BitmapFactory.decodeStream(getContentResolver().openInputStream(imageFileUri), null, bmpFactoryOptions);
-					int heightRatio = (int)Math.ceil(bmpFactoryOptions.outHeight/(float)dh);
-					int widthRatio = (int)Math.ceil(bmpFactoryOptions.outWidth/(float)dw);
-					if (heightRatio > 1 && widthRatio > 1)
-					{
-					if (heightRatio > widthRatio) {
-					bmpFactoryOptions.inSampleSize = heightRatio;
-					}
-					else {
-					bmpFactoryOptions.inSampleSize = widthRatio;
-					}
-					}
-					bmpFactoryOptions.inJustDecodeBounds = false;
+				Uri imageFileUri = intent.getData();
+				
+				try {
+					BitmapFactory.Options bmpFactoryOptions = new BitmapFactory.Options();
+					Bitmap bmp = BitmapFactory.decodeStream(getContentResolver().openInputStream(imageFileUri), null, bmpFactoryOptions);
 					bmp = BitmapFactory.decodeStream(getContentResolver().openInputStream(imageFileUri), null, bmpFactoryOptions);
-					Cartdroonize img = new Cartdroonize("path_to_image");
 					bmp=img.rescaleImage(bmp, max_size);
 					chosenImageView.setImageBitmap(bmp);
-					} catch (FileNotFoundException e) {
-					Log.v("ERROR",e.toString());
 					}
-					}
-					}
+				catch(FileNotFoundException e) {}
+				}
+		}
 }
