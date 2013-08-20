@@ -80,7 +80,7 @@ public class Cartdroonize {
 		return BitmapFactory.decodeFile(image_input_file.getAbsolutePath());
 	}
 	
-	private Bitmap rescaleImage(Bitmap image, int max_size){
+	public Bitmap rescaleImage(Bitmap image, int max_size){
 		/** 
 		 * Rescales the Bitmap preserving ratio.
 		 * @author Jascha Casadio 

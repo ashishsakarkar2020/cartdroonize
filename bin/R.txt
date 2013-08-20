@@ -1,5 +1,6 @@
 int drawable ic_launcher 0x7f020000
-int id menu_settings 0x7f070002
+int id ChoosePictureButton 0x7f070002
+int id menu_settings 0x7f070003
 int id picture_final 0x7f070001
 int id picture_init 0x7f070000
 int layout sandbox 0x7f030000

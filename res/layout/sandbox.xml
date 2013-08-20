@@ -2,12 +2,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="horizontal">
+    android:orientation="vertical">
     
     <!-- Input Image -->
     <ImageView
         android:id="@+id/picture_init"
-       	android:layout_width="wrap_content"
+       	android:layout_width="fill_parent"
        	android:layout_height="wrap_content"
        	android:contentDescription="@string/image_input"
        	/>
@@ -15,12 +15,33 @@
     <!-- Output Image -->
    	<ImageView
       	 android:id="@+id/picture_final"
-      	 android:layout_width="wrap_content"
+      	 android:layout_width="fill_parent"
       	 android:layout_height="wrap_content"
      	  android:contentDescription="@string/image_output"
       	 />
    	
+   	<!-- Select Image Button -->
+   	<Button
+   	    android:id="@+id/button_select"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:text="Choose Picture"
+		/>
+   	
    	<!-- Cartdroonize Button -->
+   	<Button
+   	    android:id="@+id/button_cartdroonize"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:text="Cartdroonize!"
+		/>
+   	
    	<!-- Save Output Image Button -->
+   	<Button
+   	    android:id="@+id/button_save"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:text="Save Image"
+		/>
    
 </LinearLayout>
