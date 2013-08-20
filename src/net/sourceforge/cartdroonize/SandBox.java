@@ -7,8 +7,6 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.Display;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -17,7 +15,7 @@ import android.widget.ImageView;
 public class SandBox extends Activity implements OnClickListener {
 	
 	private int max_size = 800;
-	Cartdroonize img = new Cartdroonize(max_size);
+	
 	//private ImageView picture_init 	= (ImageView) this.findViewById(R.id.picture_init);
 	//private ImageView picture_final = (ImageView) this.findViewById(R.id.picture_final);
 	ImageView chosenImageView;
@@ -47,8 +45,9 @@ public class SandBox extends Activity implements OnClickListener {
 					BitmapFactory.Options bmpFactoryOptions = new BitmapFactory.Options();
 					Bitmap bmp = BitmapFactory.decodeStream(getContentResolver().openInputStream(imageFileUri), null, bmpFactoryOptions);
 					bmp = BitmapFactory.decodeStream(getContentResolver().openInputStream(imageFileUri), null, bmpFactoryOptions);
-					bmp=img.rescaleImage(bmp, max_size);
-					chosenImageView.setImageBitmap(bmp);
+					
+					Cartdroonize img = new Cartdroonize(bmp, max_size);
+					chosenImageView.setImageBitmap(img.getRescaledImageInput());
 					}
 				catch(FileNotFoundException e) {}
 				}

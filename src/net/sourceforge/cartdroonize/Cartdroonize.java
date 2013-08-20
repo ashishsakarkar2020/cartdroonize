@@ -10,24 +10,28 @@ public class Cartdroonize {
 	
 	private Bitmap image_input;
 	private Bitmap image_output;
-	private int image_max_size = 400;
+	private int image_max_size;
 	
-	public Cartdroonize(){
+	public Cartdroonize(Bitmap in_image_input){
 		/** 
-		 * Instantiates Cartdroonize.
+		 * Instantiates Cartdroonize with a Bitmap.
 		 * @author Jascha Casadio 
-		 * @version 0.20130819
-		 * @param image_input_filename: The input image filename.
+		 * @version 0.20130820
+		 * @param in_image_input: The input Bitmap.
 		 */
-		//image_input = readImage(image_input_filename);
+		this(in_image_input, 400);
 	}
 	
-	public Cartdroonize(Bitmap image){
-		image_input = image;
-	}
-	
-	public Cartdroonize(int max_size){
-		setImageMaxSize(max_size);
+	public Cartdroonize(Bitmap in_image_input, int in_image_max_size){
+		/** 
+		 * Instantiates Cartdroonize with a Bitmap and max_size.
+		 * @author Jascha Casadio 
+		 * @version 0.20130820
+		 * @param in_image_input: The input Bitmap.
+		 * @param in_image_max_size: The max size of the image in the ImageView.
+		 */
+		image_input = in_image_input;
+		image_max_size = in_image_max_size;
 	}
 	
 	private void edgeDetection(){
@@ -46,30 +50,44 @@ public class Cartdroonize {
 		 */
 	}
 	
-	public Bitmap getImageInput(int max_size){
+	public Bitmap getImageInput(){
+		/** 
+		 * Getter: returns the Bitmap of the input image.
+		 * @author Jascha Casadio 
+		 * @version 0.20130820
+		 * @return The input Bitmap of the image.
+		 */
+		return image_input;
+	}
+	
+	public Bitmap getImageOutput(){
+		/** 
+		 * Getter: returns the Bitmap of the output image.
+		 * @author Jascha Casadio 
+		 * @version 0.20130820
+		 * @return The Bitmap of the output (posterized) image.
+		 */
+		return image_output;
+	}
+	
+	public Bitmap getRescaledImageInput(){
 		/** 
 		 * Getter: returns the rescaled Bitmap of the input image.
 		 * @author Jascha Casadio 
-		 * @version 0.20130819
-		 * @param max_size: The max size of the image.
+		 * @version 0.20130820
 		 * @return The rescaled Bitmap of the input image.
 		 */
-		return rescaleImage(image_input, max_size);
+		return rescaleImage(image_input, image_max_size);
 	}
 	
-	public Bitmap getImageOutput(int max_size){
+	public Bitmap getRescaledImageOutput(){
 		/** 
 		 * Getter: returns the rescaled Bitmap of the output image.
 		 * @author Jascha Casadio 
 		 * @version 0.20130819
-		 * @param max_size: The max size of the image.
 		 * @return The rescaled Bitmap of the output (posterized) image.
 		 */
-		return rescaleImage(image_output, max_size);
-	}
-	
-	public int getImageMaxSize(){
-		return image_max_size;
+		return rescaleImage(image_output, image_max_size);
 	}
 	
 	private void posterize(int posterization_strength){
