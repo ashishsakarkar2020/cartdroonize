@@ -1,7 +1,19 @@
 package net.sourceforge.cartdroonize;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.RandomAccessFile;
+import java.nio.MappedByteBuffer;
+import java.nio.channels.FileChannel;
+import java.nio.channels.FileChannel.MapMode;
+
 import android.graphics.Bitmap;
+import android.graphics.Bitmap.Config;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
+import android.os.Environment;
+import android.util.Log;
 
 
 public class Cartdroonize {
@@ -30,7 +42,7 @@ public class Cartdroonize {
 		 */
 		image_input = in_image_input;
 		image_max_size = in_image_max_size;
-	}
+	}s
 	
 	private void edgeDetection(){
 		/** 
@@ -88,13 +100,26 @@ public class Cartdroonize {
 		return rescaleImage(image_output, image_max_size);
 	}
 	
-	private void posterize(int posterization_strength){
+	public void posterize(int posterization_strength){
 		/** 
 		 * Posterizes the input image with the given strength.
 		 * @author Jascha Casadio 
-		 * @version 0.20130819
+		 * @version 0.20130821
 		 * @param posterization_strength: The strength of the posterization effect.
 		 */
+		Log.v("Mutable", String.valueOf(this.image_input.isMutable()));
+		for(int i = 0; i < this.image_input.getWidth(); i++){
+			for(int j = 0;j < this.image_input.getHeight(); j++){  
+				int pixel = this.image_input.getPixel(i, j);
+				int red_current = Color.red(pixel);
+				int green_current = Color.green(pixel);
+				int blue_current = Color.blue(pixel);
+				int red_new = (red_current - (red_current % posterization_strength));
+				int green_new = (green_current - (green_current % posterization_strength));
+				int blue_new = (blue_current - (blue_current % posterization_strength));
+                this.image_input.setPixel(i, j, Color.rgb(red_new, green_new, blue_new));
+			}
+		}
 	}
 	
 	private Bitmap rescaleImage(Bitmap image, int max_size){
