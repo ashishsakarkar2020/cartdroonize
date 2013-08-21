@@ -52,20 +52,20 @@ public class Cartdroonize {
 		/** 
 		 * Getter: returns the Bitmap of the input image.
 		 * @author Jascha Casadio 
-		 * @version 0.20130820
+		 * @version 0.20130821
 		 * @return The input Bitmap of the image.
 		 */
-		return image_input;
+		return this.image_input;
 	}
 	
 	public Bitmap getImageOutput(){
 		/** 
 		 * Getter: returns the Bitmap of the output image.
 		 * @author Jascha Casadio 
-		 * @version 0.20130820
+		 * @version 0.20130821
 		 * @return The Bitmap of the output (posterized) image.
 		 */
-		return image_output;
+		return this.image_output;
 	}
 	
 	public Bitmap getRescaledImageInput(){
