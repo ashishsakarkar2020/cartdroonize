@@ -42,7 +42,7 @@ public class Cartdroonize {
 		 */
 		image_input = in_image_input;
 		image_max_size = in_image_max_size;
-	}s
+	}
 	
 	private void edgeDetection(){
 		/** 
