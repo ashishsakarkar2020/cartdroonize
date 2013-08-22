@@ -11,6 +11,20 @@ public class Cartdroonize {
 	private Bitmap image_output;
 	private int image_max_size;
 	
+	private class KirschMasks {
+		/**
+		 * Defines the eight 3x3 Kirsch's masks used to convolute an image.
+		 */
+		int[][] kirsch_mask_0 = {{ 5,  5, 5},  {-3, 0, -3}, {-3, -3, -3}};
+		int[][] kirsch_mask_1 = {{-3,  5, 5},  {-3, 0,  5}, {-3, -3, -3}};
+		int[][] kirsch_mask_2 = {{-3, -3, 5},  {-3, 0,  5}, {-3, -3,  5}};
+		int[][] kirsch_mask_3 = {{-3, -3, -3}, {-3, 0,  5}, {-3,  5,  5}};
+		int[][] kirsch_mask_4 = {{-3, -3, -3}, {-3, 0, -3}, { 5,  5,  5}};
+		int[][] kirsch_mask_5 = {{-3, -3, -3}, { 5, 0, -3}, { 5,  5, -3}};
+		int[][] kirsch_mask_6 = {{ 5, -3, -3}, { 5, 0, -3}, { 5, -3, -3}};
+		int[][] kirsch_mask_7 = {{ 5,  5, -3}, { 5, 0, -3}, {-3, -3, -3}};
+	}
+	
 	public Cartdroonize(Bitmap in_image_input){
 		/** 
 		 * Instantiates Cartdroonize with a mutable Bitmap.
