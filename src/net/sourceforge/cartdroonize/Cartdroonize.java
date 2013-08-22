@@ -25,6 +25,20 @@ public class Cartdroonize {
 		int[][] kirsch_mask_7 = {{ 5,  5, -3}, { 5, 0, -3}, {-3, -3, -3}};
 	}
 	
+	private class PrewittMasks {
+		/**
+		 * Defines the eight 3x3 Prewitt's masks used to convolute an image.
+		 */
+		int[][] prewitt_mask_0 = {{ 1,  1,  1}, { 1, -2,  1}, {-1, -1, -1}};
+		int[][] prewitt_mask_1 = {{ 1,  1,  1}, { 1, -2, -1}, { 1, -1, -1}};
+		int[][] prewitt_mask_2 = {{ 1,  1, -1}, { 1, -2, -1}, { 1,  1, -1}};
+		int[][] prewitt_mask_3 = {{ 1, -1, -1}, { 1, -2, -1}, { 1,  1,  1}};
+		int[][] prewitt_mask_4 = {{-1, -1, -1}, { 1, -2,  1}, { 1,  1,  1}};
+		int[][] prewitt_mask_5 = {{-1, -1,  1}, {-1, -2,  1}, { 1,  1,  1}};
+		int[][] prewitt_mask_6 = {{-1,  1,  1}, {-1, -2,  1}, {-1,  1,  1}};
+		int[][] prewitt_mask_7 = {{ 1,  1,  1}, {-1, -2,  1}, {-1, -1,  1}};
+	}
+	
 	public Cartdroonize(Bitmap in_image_input){
 		/** 
 		 * Instantiates Cartdroonize with a mutable Bitmap.
