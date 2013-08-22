@@ -43,10 +43,12 @@ public class SandBox extends Activity implements OnClickListener {
 				
 				try {
 					BitmapFactory.Options bmpFactoryOptions = new BitmapFactory.Options();
+					bmpFactoryOptions.inMutable=true; // Bitmap MUST be mutable!!!
 					Bitmap bmp = BitmapFactory.decodeStream(getContentResolver().openInputStream(imageFileUri), null, bmpFactoryOptions);
 					bmp = BitmapFactory.decodeStream(getContentResolver().openInputStream(imageFileUri), null, bmpFactoryOptions);
 					
 					Cartdroonize img = new Cartdroonize(bmp, max_size);
+					img.posterize(30);
 					chosenImageView.setImageBitmap(img.getRescaledImageInput());
 					}
 				catch(FileNotFoundException e) {}

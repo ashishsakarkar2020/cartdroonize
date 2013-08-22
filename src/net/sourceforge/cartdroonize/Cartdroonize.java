@@ -24,20 +24,20 @@ public class Cartdroonize {
 	
 	public Cartdroonize(Bitmap in_image_input){
 		/** 
-		 * Instantiates Cartdroonize with a Bitmap.
+		 * Instantiates Cartdroonize with a mutable Bitmap.
 		 * @author Jascha Casadio 
-		 * @version 0.20130820
-		 * @param in_image_input: The input Bitmap.
+		 * @version 0.20130821
+		 * @param in_image_input: The mutable input Bitmap.
 		 */
 		this(in_image_input, 400);
 	}
 	
 	public Cartdroonize(Bitmap in_image_input, int in_image_max_size){
 		/** 
-		 * Instantiates Cartdroonize with a Bitmap and max_size.
+		 * Instantiates Cartdroonize with a mutable Bitmap and max_size.
 		 * @author Jascha Casadio 
-		 * @version 0.20130820
-		 * @param in_image_input: The input Bitmap.
+		 * @version 0.20130821
+		 * @param in_image_input: The mutable input Bitmap.
 		 * @param in_image_max_size: The max size of the image in the ImageView.
 		 */
 		image_input = in_image_input;
