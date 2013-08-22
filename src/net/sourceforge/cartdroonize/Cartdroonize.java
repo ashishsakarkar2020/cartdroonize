@@ -1,18 +1,7 @@
 package net.sourceforge.cartdroonize;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.RandomAccessFile;
-import java.nio.MappedByteBuffer;
-import java.nio.channels.FileChannel;
-import java.nio.channels.FileChannel.MapMode;
-
 import android.graphics.Bitmap;
-import android.graphics.Bitmap.Config;
-import android.graphics.BitmapFactory;
 import android.graphics.Color;
-import android.os.Environment;
 import android.util.Log;
 
 
@@ -44,11 +33,19 @@ public class Cartdroonize {
 		image_max_size = in_image_max_size;
 	}
 	
+	private void edgeConvolution(){
+		/** 
+		 * Convolutes the image with masks.
+		 * @author Jascha Casadio 
+		 * @version 0.20130822
+		 */
+	}
+	
 	private void edgeDetection(){
 		/** 
 		 * Detects the edges of the input image.
 		 * @author Jascha Casadio 
-		 * @version 0.20130819
+		 * @version 0.20130822
 		 */
 	}
 	
@@ -56,7 +53,15 @@ public class Cartdroonize {
 		/** 
 		 * Enhances the edges of the input image.
 		 * @author Jascha Casadio 
-		 * @version 0.20130819
+		 * @version 0.20130822
+		 */
+	}
+	
+	private void edgeFixEdges(){
+		/** 
+		 * Restores the border of the image after convolution.
+		 * @author Jascha Casadio 
+		 * @version 0.20130822
 		 */
 	}
 	
