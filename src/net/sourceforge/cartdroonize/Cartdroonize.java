@@ -39,6 +39,21 @@ public class Cartdroonize {
 		int[][] prewitt_mask_7 = {{ 1,  1,  1}, {-1, -2,  1}, {-1, -1,  1}};
 	}
 	
+	private class SobelMasks {
+		/**
+		 * Defines the eight 3x3 Sobel's masks used to convolute an image.
+		 */
+		int[][] sobel_mask_0 = {{ 1,  2,  1},{ 0, 0,  0},{-1, -2, -1}};
+		int[][] sobel_mask_1 = {{ 2,  1,  0},{ 1, 0, -1},{ 0, -1, -2}};
+		int[][] sobel_mask_2 = {{ 1,  0, -1},{ 2, 0, -2},{ 1,  0, -1}};
+		int[][] sobel_mask_3 = {{ 0, -1, -2},{ 1, 0, -1},{ 2,  1,  0}};
+		int[][] sobel_mask_4 = {{-1, -2, -1},{ 0, 0,  0},{ 1,  2,  1}};
+		int[][] sobel_mask_5 = {{-2, -1,  0},{-1, 0,  1},{ 0,  1,  2}};
+		int[][] sobel_mask_6 = {{-1,  0,  1},{-2, 0,  2},{-1,  0,  1}};
+		int[][] sobel_mask_7 = {{ 0,  1,  2},{-1, 0,  1},{-2, -1,  0}};
+	}
+	
+	
 	public Cartdroonize(Bitmap in_image_input){
 		/** 
 		 * Instantiates Cartdroonize with a mutable Bitmap.
