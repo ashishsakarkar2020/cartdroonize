@@ -15,9 +15,6 @@ import android.widget.ImageView;
 public class SandBox extends Activity implements OnClickListener {
 	
 	private int max_size = 800;
-	
-	//private ImageView picture_init 	= (ImageView) this.findViewById(R.id.picture_init);
-	//private ImageView picture_final = (ImageView) this.findViewById(R.id.picture_final);
 	ImageView chosenImageView;
 	Button choosePicture;
 
@@ -49,6 +46,7 @@ public class SandBox extends Activity implements OnClickListener {
 					
 					Cartdroonize img = new Cartdroonize(bmp, max_size);
 					img.posterize(30);
+					//img.edgeDetection();
 					chosenImageView.setImageBitmap(img.getRescaledImageInput());
 					}
 				catch(FileNotFoundException e) {}

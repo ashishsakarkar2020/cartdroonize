@@ -72,24 +72,199 @@ public class Cartdroonize {
 		 * @param in_image_input: The mutable input Bitmap.
 		 * @param in_image_max_size: The max size of the image in the ImageView.
 		 */
-		image_input = in_image_input;
-		image_max_size = in_image_max_size;
+		this.image_input = in_image_input;
+		this.image_output = Bitmap.createBitmap(this.image_input);
+		this.image_max_size = in_image_max_size;
 	}
 	
-	private void edgeConvolution(){
+	private Bitmap clearImage(Bitmap image){
+		/**
+		 * Clears a Bitmap setting all its pixels to (255,255,255).
+		 * @author Jascha Casadio
+		 * @version 0.20130823
+		 * @image: The mutable Bitmap to clear.
+		 * @return image: The cleared mutable Bitmap.
+		 */
+		for(int i = 0; i < image.getWidth(); i++){
+			for(int j = 0; j < image.getHeight(); j++){
+				image.setPixel(i, j, Color.rgb(255, 255, 255));
+				}
+			}
+		return image;
+	}
+	
+	private void edgeConvolution(int threshold, int high){
 		/** 
+		 * input: the_image, out_image, detect_type, threshold, high, bits_per_pixel
 		 * Convolutes the image with masks.
 		 * @author Jascha Casadio 
-		 * @version 0.20130822
+		 * @version 0.20130823
 		 */
-	}
+		
+		int sum;
+		
+		int max = 50,
+		new_hi = 10,
+		new_low = 2;
+		
+		//mask_0, mask_1, mask_2, mask_3, mask_4, mask_5, mask_6, mask_7 = edgeSetupMask(detect_type);
+		int[][]mask_0 = {{ 5,  5, 5},  {-3, 0, -3}, {-3, -3, -3}};
+		int[][]mask_1 = {{-3,  5, 5},  {-3, 0,  5}, {-3, -3, -3}};
+		int[][]mask_2 = {{-3, -3, 5},  {-3, 0,  5}, {-3, -3,  5}};
+		int[][]mask_3 = {{-3, -3, -3}, {-3, 0,  5}, {-3,  5,  5}};
+		int[][]mask_4 = {{-3, -3, -3}, {-3, 0, -3}, { 5,  5,  5}};
+		int[][]mask_5 = {{-3, -3, -3}, { 5, 0, -3}, { 5,  5, -3}};
+		int[][]mask_6 = {{ 5, -3, -3}, { 5, 0, -3}, { 5, -3, -3}};
+		int[][]mask_7 = {{ 5,  5, -3}, { 5, 0, -3}, {-3, -3, -3}};
+		
+		/* clear output image array */
+		this.image_input = clearImage(this.image_input);
+		
+		for(int i=1; i<this.image_input.getWidth()-1; i++){
+			for(int j=1; j<this.image_input.getHeight()-1; j++){
+		
+				/* 0 direction */
+				sum = 0;
+				for(int a=-1; a<2; a++){
+					for(int b=-1; b<2; b++){
+						sum = sum + this.image_input.getPixel(i+a, j+b) * mask_0[a+1][b+1];
+					}
+				}
+		
+				if(sum > max){sum = max;}
+				if(sum < 0){sum = 0;}	
+				if(sum > this.image_input.getPixel(i, j)){
+					this.image_input.setPixel(i, j, sum);
+				}
+		
+				/* 1 direction */
+				sum = 0;
+				for(int a=-1; a<2; a++){
+					for(int b=-1; b<2; b++){
+						sum = sum + this.image_input.getPixel(i+a, j+b) * mask_1[a+1][b+1];
+					}
+				}
+				
+				if(sum > max){sum = max;}
+				if(sum < 0){sum = 0;}	
+				if(sum > this.image_input.getPixel(i, j)){
+					this.image_input.setPixel(i, j, sum);
+				}
+				
+				/* 2 direction */
+				sum = 0;
+				for(int a=-1; a<2; a++){
+					for(int b=-1; b<2; b++){
+						sum = sum + this.image_input.getPixel(i+a, j+b) * mask_2[a+1][b+1];
+					}
+				}
+				
+				if(sum > max){sum = max;}
+				if(sum < 0){sum = 0;}	
+				if(sum > this.image_input.getPixel(i, j)){
+					this.image_input.setPixel(i, j, sum);
+				}
+				
+				/* 3 direction */
+				sum = 0;
+				for(int a=-1; a<2; a++){
+					for(int b=-1; b<2; b++){
+						sum = sum + this.image_input.getPixel(i+a, j+b) * mask_3[a+1][b+1];
+					}
+				}
+				
+				if(sum > max){sum = max;}
+				if(sum < 0){sum = 0;}	
+				if(sum > this.image_input.getPixel(i, j)){
+					this.image_input.setPixel(i, j, sum);
+				}
+				
+				/* 4 direction */
+				sum = 0;
+				for(int a=-1; a<2; a++){
+					for(int b=-1; b<2; b++){
+						sum = sum + this.image_input.getPixel(i+a, j+b) * mask_4[a+1][b+1];
+					}
+				}
+				
+				if(sum > max){sum = max;}
+				if(sum < 0){sum = 0;}	
+				if(sum > this.image_input.getPixel(i, j)){
+					this.image_input.setPixel(i, j, sum);
+				}
+				
+				/* 5 direction */
+				sum = 0;
+				for(int a=-1; a<2; a++){
+					for(int b=-1; b<2; b++){
+						sum = sum + this.image_input.getPixel(i+a, j+b) * mask_5[a+1][b+1];
+					}
+				}
+				
+				if(sum > max){sum = max;}
+				if(sum < 0){sum = 0;}	
+				if(sum > this.image_input.getPixel(i, j)){
+					this.image_input.setPixel(i, j, sum);
+				}
+				
+				/* 6 direction */
+				sum = 0;
+				for(int a=-1; a<2; a++){
+					for(int b=-1; b<2; b++){
+						sum = sum + this.image_input.getPixel(i+a, j+b) * mask_6[a+1][b+1];
+					}
+				}
+				
+				if(sum > max){sum = max;}
+				if(sum < 0){sum = 0;}	
+				if(sum > this.image_input.getPixel(i, j)){
+					this.image_input.setPixel(i, j, sum);
+				}
+				
+				/* 7 direction */
+				sum = 0;
+				for(int a=-1; a<2; a++){
+					for(int b=-1; b<2; b++){
+						sum = sum + this.image_input.getPixel(i+a, j+b) * mask_7[a+1][b+1];
+					}
+				}
+				
+				if(sum > max){sum = max;}
+				if(sum < 0){sum = 0;}	
+				if(sum > this.image_input.getPixel(i, j)){
+					this.image_input.setPixel(i, j, sum);
+				}
+			} /* ends loop over j */
+		} /* ends loop over i */
+		
+		/* threshold the output image */
+		if(threshold == 1){
+			for(int i=0; i<this.image_input.getWidth(); i++){
+				for(int j=0; j<this.image_input.getHeight(); j++){
+					if(this.image_input.getPixel(i, j) > high){
+						this.image_input.setPixel(i, j, new_hi);
+						}
+					else{
+						this.image_input.setPixel(i, j, new_low);
+						}
+					}
+				}
+			}
+} 
 	
-	private void edgeDetection(){
+	public void edgeDetection(){
+				
 		/** 
+		 * 
+		 * input: the_image, out_image, detect_type, threshold, high, rows, cols, bits_per_pixel
+		 * 
 		 * Detects the edges of the input image.
 		 * @author Jascha Casadio 
 		 * @version 0.20130822
 		 */
+		this.edgeConvolution(0,100); //all input
+		//this.edgeFixEdges(); //out_image, 1, rows, cols
+		
 	}
 	
 	private void edgeEnhancement(){
@@ -105,6 +280,12 @@ public class Cartdroonize {
 		 * Restores the border of the image after convolution.
 		 * @author Jascha Casadio 
 		 * @version 0.20130822
+		 */
+	}
+	
+	private void edgeSetupMask(int mask_type){
+		/**
+		 * 
 		 */
 	}
 	
@@ -155,7 +336,6 @@ public class Cartdroonize {
 		 * @version 0.20130821
 		 * @param posterization_strength: The strength of the posterization effect.
 		 */
-		Log.v("Mutable", String.valueOf(this.image_input.isMutable()));
 		for(int i = 0; i < this.image_input.getWidth(); i++){
 			for(int j = 0;j < this.image_input.getHeight(); j++){  
 				int pixel = this.image_input.getPixel(i, j);
