@@ -1,0 +1,336 @@
+\hypertarget{classnet_1_1sourceforge_1_1cartdroonize_1_1Cartdroonize}{
+\section{net::sourceforge::cartdroonize::Cartdroonize Class Reference}
+\label{classnet_1_1sourceforge_1_1cartdroonize_1_1Cartdroonize}\index{net::sourceforge::cartdroonize::Cartdroonize@{net::sourceforge::cartdroonize::Cartdroonize}}
+}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classnet_1_1sourceforge_1_1cartdroonize_1_1Cartdroonize_ac239b9f8ae651dcf5d7758d481a6866c}{Cartdroonize} (Bitmap in\_\-image\_\-input)
+\item 
+\hyperlink{classnet_1_1sourceforge_1_1cartdroonize_1_1Cartdroonize_a1fd8ab3bf55781769784ad493c57a4c3}{Cartdroonize} (Bitmap in\_\-image\_\-input, int in\_\-image\_\-max\_\-size)
+\item 
+void \hyperlink{classnet_1_1sourceforge_1_1cartdroonize_1_1Cartdroonize_abbc322e6d633e277771992237b039c15}{blackAndWhite} ()
+\item 
+void \hyperlink{classnet_1_1sourceforge_1_1cartdroonize_1_1Cartdroonize_adf8fd343e0e858e5edc35dd18f0d1e98}{edgeDetection} ()
+\item 
+Bitmap \hyperlink{classnet_1_1sourceforge_1_1cartdroonize_1_1Cartdroonize_a5f00ec77ddb515699581ecb8e2ebd227}{getImageInput} ()
+\item 
+Bitmap \hyperlink{classnet_1_1sourceforge_1_1cartdroonize_1_1Cartdroonize_a82804cde26412ce24fed465b59236548}{getImageOutput} ()
+\item 
+Bitmap \hyperlink{classnet_1_1sourceforge_1_1cartdroonize_1_1Cartdroonize_a8c833305bf05155765244feac04ba3ac}{getRescaledImageInput} ()
+\item 
+Bitmap \hyperlink{classnet_1_1sourceforge_1_1cartdroonize_1_1Cartdroonize_a2245840b5632ebe6fda46c2d72a65e6b}{getRescaledImageOutput} ()
+\item 
+void \hyperlink{classnet_1_1sourceforge_1_1cartdroonize_1_1Cartdroonize_a6ffb29702adb9521fe9b3d68e312f18d}{posterize} (int posterization\_\-strength)
+\item 
+void \hyperlink{classnet_1_1sourceforge_1_1cartdroonize_1_1Cartdroonize_a6b78247d653025ae6611f27b951d47dd}{setImageMaxSize} (int in\_\-image\_\-max\_\-size)
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+Bitmap \hyperlink{classnet_1_1sourceforge_1_1cartdroonize_1_1Cartdroonize_a25e2dc7b8de4289b58de1a93dc4b6baf}{clearImage} (Bitmap image)
+\item 
+void \hyperlink{classnet_1_1sourceforge_1_1cartdroonize_1_1Cartdroonize_ae477df2b914a566630a950ded06a6d0e}{edgeConvolution} (int threshold, int high)
+\item 
+void \hyperlink{classnet_1_1sourceforge_1_1cartdroonize_1_1Cartdroonize_aa96080dadc14446e14fa2ad87e3c6517}{edgeEnhancement} ()
+\item 
+void \hyperlink{classnet_1_1sourceforge_1_1cartdroonize_1_1Cartdroonize_ad69a655473d02551eebb461899470d5d}{edgeFixEdges} ()
+\item 
+Bitmap \hyperlink{classnet_1_1sourceforge_1_1cartdroonize_1_1Cartdroonize_ae9ef33e35b95674d616d2a1e7bc527f2}{rescaleImage} (Bitmap image, int max\_\-size)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Bitmap \hyperlink{classnet_1_1sourceforge_1_1cartdroonize_1_1Cartdroonize_ae5315d354649c37ff7a683f3e1316263}{image\_\-input}
+\item 
+Bitmap \hyperlink{classnet_1_1sourceforge_1_1cartdroonize_1_1Cartdroonize_a60dad11dc13c083b5b092c2289a082af}{image\_\-output}
+\item 
+int \hyperlink{classnet_1_1sourceforge_1_1cartdroonize_1_1Cartdroonize_af10d9828c5247f7f12f453c1f7903799}{image\_\-max\_\-size}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classnet_1_1sourceforge_1_1cartdroonize_1_1Cartdroonize_ac239b9f8ae651dcf5d7758d481a6866c}{
+\index{net::sourceforge::cartdroonize::Cartdroonize@{net::sourceforge::cartdroonize::Cartdroonize}!Cartdroonize@{Cartdroonize}}
+\index{Cartdroonize@{Cartdroonize}!net::sourceforge::cartdroonize::Cartdroonize@{net::sourceforge::cartdroonize::Cartdroonize}}
+\subsubsection[{Cartdroonize}]{\setlength{\rightskip}{0pt plus 5cm}net::sourceforge::cartdroonize::Cartdroonize::Cartdroonize (Bitmap {\em in\_\-image\_\-input})\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classnet_1_1sourceforge_1_1cartdroonize_1_1Cartdroonize_ac239b9f8ae651dcf5d7758d481a6866c}
+The max size the image can have when displayed in the device. Does not affect the real size of the image 
+
+Instantiates \hyperlink{classnet_1_1sourceforge_1_1cartdroonize_1_1Cartdroonize}{Cartdroonize} with a mutable Bitmap. \begin{DoxyAuthor}{Author}
+Jascha Casadio 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.20130821 
+\end{DoxyVersion}
+
+\begin{DoxyParams}{Parameters}
+\item[{\em in\_\-image\_\-input,:}]The mutable input Bitmap.\end{DoxyParams}
+
+
+\hypertarget{classnet_1_1sourceforge_1_1cartdroonize_1_1Cartdroonize_a1fd8ab3bf55781769784ad493c57a4c3}{
+\index{net::sourceforge::cartdroonize::Cartdroonize@{net::sourceforge::cartdroonize::Cartdroonize}!Cartdroonize@{Cartdroonize}}
+\index{Cartdroonize@{Cartdroonize}!net::sourceforge::cartdroonize::Cartdroonize@{net::sourceforge::cartdroonize::Cartdroonize}}
+\subsubsection[{Cartdroonize}]{\setlength{\rightskip}{0pt plus 5cm}net::sourceforge::cartdroonize::Cartdroonize::Cartdroonize (Bitmap {\em in\_\-image\_\-input}, \/  int {\em in\_\-image\_\-max\_\-size})\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classnet_1_1sourceforge_1_1cartdroonize_1_1Cartdroonize_a1fd8ab3bf55781769784ad493c57a4c3}
+
+
+Instantiates \hyperlink{classnet_1_1sourceforge_1_1cartdroonize_1_1Cartdroonize}{Cartdroonize} with a mutable Bitmap and max\_\-size. \begin{DoxyAuthor}{Author}
+Jascha Casadio 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.20130821 
+\end{DoxyVersion}
+
+\begin{DoxyParams}{Parameters}
+\item[{\em in\_\-image\_\-input,:}]The mutable input Bitmap. \item[{\em in\_\-image\_\-max\_\-size,:}]The max size of the image in the ImageView.\end{DoxyParams}
+
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classnet_1_1sourceforge_1_1cartdroonize_1_1Cartdroonize_abbc322e6d633e277771992237b039c15}{
+\index{net::sourceforge::cartdroonize::Cartdroonize@{net::sourceforge::cartdroonize::Cartdroonize}!blackAndWhite@{blackAndWhite}}
+\index{blackAndWhite@{blackAndWhite}!net::sourceforge::cartdroonize::Cartdroonize@{net::sourceforge::cartdroonize::Cartdroonize}}
+\subsubsection[{blackAndWhite}]{\setlength{\rightskip}{0pt plus 5cm}void net::sourceforge::cartdroonize::Cartdroonize::blackAndWhite ()\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classnet_1_1sourceforge_1_1cartdroonize_1_1Cartdroonize_abbc322e6d633e277771992237b039c15}
+
+
+Turns the image into grayscale using the lightness method. \begin{DoxyAuthor}{Author}
+Jascha Casadio 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.20130825
+\end{DoxyVersion}
+
+
+\hypertarget{classnet_1_1sourceforge_1_1cartdroonize_1_1Cartdroonize_a25e2dc7b8de4289b58de1a93dc4b6baf}{
+\index{net::sourceforge::cartdroonize::Cartdroonize@{net::sourceforge::cartdroonize::Cartdroonize}!clearImage@{clearImage}}
+\index{clearImage@{clearImage}!net::sourceforge::cartdroonize::Cartdroonize@{net::sourceforge::cartdroonize::Cartdroonize}}
+\subsubsection[{clearImage}]{\setlength{\rightskip}{0pt plus 5cm}Bitmap net::sourceforge::cartdroonize::Cartdroonize::clearImage (Bitmap {\em image})\hspace{0.3cm}{\ttfamily  \mbox{[}inline, private\mbox{]}}}}
+\label{classnet_1_1sourceforge_1_1cartdroonize_1_1Cartdroonize_a25e2dc7b8de4289b58de1a93dc4b6baf}
+
+
+Clears a Bitmap setting all its pixels to (255,255,255). \begin{DoxyAuthor}{Author}
+Jascha Casadio 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.20130823  The mutable Bitmap to clear. 
+\end{DoxyVersion}
+\begin{DoxyReturn}{Returns}
+image: The cleared mutable Bitmap.
+\end{DoxyReturn}
+
+
+\hypertarget{classnet_1_1sourceforge_1_1cartdroonize_1_1Cartdroonize_ae477df2b914a566630a950ded06a6d0e}{
+\index{net::sourceforge::cartdroonize::Cartdroonize@{net::sourceforge::cartdroonize::Cartdroonize}!edgeConvolution@{edgeConvolution}}
+\index{edgeConvolution@{edgeConvolution}!net::sourceforge::cartdroonize::Cartdroonize@{net::sourceforge::cartdroonize::Cartdroonize}}
+\subsubsection[{edgeConvolution}]{\setlength{\rightskip}{0pt plus 5cm}void net::sourceforge::cartdroonize::Cartdroonize::edgeConvolution (int {\em threshold}, \/  int {\em high})\hspace{0.3cm}{\ttfamily  \mbox{[}inline, private\mbox{]}}}}
+\label{classnet_1_1sourceforge_1_1cartdroonize_1_1Cartdroonize_ae477df2b914a566630a950ded06a6d0e}
+
+
+input: the\_\-image, out\_\-image, detect\_\-type, threshold, high, bits\_\-per\_\-pixel Convolutes the image with masks. \begin{DoxyAuthor}{Author}
+Jascha Casadio 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.20130823
+\end{DoxyVersion}
+
+
+\hypertarget{classnet_1_1sourceforge_1_1cartdroonize_1_1Cartdroonize_adf8fd343e0e858e5edc35dd18f0d1e98}{
+\index{net::sourceforge::cartdroonize::Cartdroonize@{net::sourceforge::cartdroonize::Cartdroonize}!edgeDetection@{edgeDetection}}
+\index{edgeDetection@{edgeDetection}!net::sourceforge::cartdroonize::Cartdroonize@{net::sourceforge::cartdroonize::Cartdroonize}}
+\subsubsection[{edgeDetection}]{\setlength{\rightskip}{0pt plus 5cm}void net::sourceforge::cartdroonize::Cartdroonize::edgeDetection ()\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classnet_1_1sourceforge_1_1cartdroonize_1_1Cartdroonize_adf8fd343e0e858e5edc35dd18f0d1e98}
+
+
+Detects the edges of the input image. \begin{DoxyAuthor}{Author}
+Jascha Casadio 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.20130822
+\end{DoxyVersion}
+
+
+\hypertarget{classnet_1_1sourceforge_1_1cartdroonize_1_1Cartdroonize_aa96080dadc14446e14fa2ad87e3c6517}{
+\index{net::sourceforge::cartdroonize::Cartdroonize@{net::sourceforge::cartdroonize::Cartdroonize}!edgeEnhancement@{edgeEnhancement}}
+\index{edgeEnhancement@{edgeEnhancement}!net::sourceforge::cartdroonize::Cartdroonize@{net::sourceforge::cartdroonize::Cartdroonize}}
+\subsubsection[{edgeEnhancement}]{\setlength{\rightskip}{0pt plus 5cm}void net::sourceforge::cartdroonize::Cartdroonize::edgeEnhancement ()\hspace{0.3cm}{\ttfamily  \mbox{[}inline, private\mbox{]}}}}
+\label{classnet_1_1sourceforge_1_1cartdroonize_1_1Cartdroonize_aa96080dadc14446e14fa2ad87e3c6517}
+
+
+Enhances the edges of the input image. \begin{DoxyAuthor}{Author}
+Jascha Casadio 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.20130822
+\end{DoxyVersion}
+
+
+\hypertarget{classnet_1_1sourceforge_1_1cartdroonize_1_1Cartdroonize_ad69a655473d02551eebb461899470d5d}{
+\index{net::sourceforge::cartdroonize::Cartdroonize@{net::sourceforge::cartdroonize::Cartdroonize}!edgeFixEdges@{edgeFixEdges}}
+\index{edgeFixEdges@{edgeFixEdges}!net::sourceforge::cartdroonize::Cartdroonize@{net::sourceforge::cartdroonize::Cartdroonize}}
+\subsubsection[{edgeFixEdges}]{\setlength{\rightskip}{0pt plus 5cm}void net::sourceforge::cartdroonize::Cartdroonize::edgeFixEdges ()\hspace{0.3cm}{\ttfamily  \mbox{[}inline, private\mbox{]}}}}
+\label{classnet_1_1sourceforge_1_1cartdroonize_1_1Cartdroonize_ad69a655473d02551eebb461899470d5d}
+
+
+Restores the border of the image after convolution. \begin{DoxyAuthor}{Author}
+Jascha Casadio 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.20130822
+\end{DoxyVersion}
+
+
+\hypertarget{classnet_1_1sourceforge_1_1cartdroonize_1_1Cartdroonize_a5f00ec77ddb515699581ecb8e2ebd227}{
+\index{net::sourceforge::cartdroonize::Cartdroonize@{net::sourceforge::cartdroonize::Cartdroonize}!getImageInput@{getImageInput}}
+\index{getImageInput@{getImageInput}!net::sourceforge::cartdroonize::Cartdroonize@{net::sourceforge::cartdroonize::Cartdroonize}}
+\subsubsection[{getImageInput}]{\setlength{\rightskip}{0pt plus 5cm}Bitmap net::sourceforge::cartdroonize::Cartdroonize::getImageInput ()\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classnet_1_1sourceforge_1_1cartdroonize_1_1Cartdroonize_a5f00ec77ddb515699581ecb8e2ebd227}
+
+
+Getter: returns the Bitmap of the input image. \begin{DoxyAuthor}{Author}
+Jascha Casadio 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.20130821 
+\end{DoxyVersion}
+\begin{DoxyReturn}{Returns}
+The input Bitmap of the image.
+\end{DoxyReturn}
+
+
+\hypertarget{classnet_1_1sourceforge_1_1cartdroonize_1_1Cartdroonize_a82804cde26412ce24fed465b59236548}{
+\index{net::sourceforge::cartdroonize::Cartdroonize@{net::sourceforge::cartdroonize::Cartdroonize}!getImageOutput@{getImageOutput}}
+\index{getImageOutput@{getImageOutput}!net::sourceforge::cartdroonize::Cartdroonize@{net::sourceforge::cartdroonize::Cartdroonize}}
+\subsubsection[{getImageOutput}]{\setlength{\rightskip}{0pt plus 5cm}Bitmap net::sourceforge::cartdroonize::Cartdroonize::getImageOutput ()\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classnet_1_1sourceforge_1_1cartdroonize_1_1Cartdroonize_a82804cde26412ce24fed465b59236548}
+
+
+Getter: returns the Bitmap of the output image. \begin{DoxyAuthor}{Author}
+Jascha Casadio 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.20130821 
+\end{DoxyVersion}
+\begin{DoxyReturn}{Returns}
+The Bitmap of the output (posterized) image.
+\end{DoxyReturn}
+
+
+\hypertarget{classnet_1_1sourceforge_1_1cartdroonize_1_1Cartdroonize_a8c833305bf05155765244feac04ba3ac}{
+\index{net::sourceforge::cartdroonize::Cartdroonize@{net::sourceforge::cartdroonize::Cartdroonize}!getRescaledImageInput@{getRescaledImageInput}}
+\index{getRescaledImageInput@{getRescaledImageInput}!net::sourceforge::cartdroonize::Cartdroonize@{net::sourceforge::cartdroonize::Cartdroonize}}
+\subsubsection[{getRescaledImageInput}]{\setlength{\rightskip}{0pt plus 5cm}Bitmap net::sourceforge::cartdroonize::Cartdroonize::getRescaledImageInput ()\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classnet_1_1sourceforge_1_1cartdroonize_1_1Cartdroonize_a8c833305bf05155765244feac04ba3ac}
+
+
+Getter: returns the rescaled Bitmap of the input image. \begin{DoxyAuthor}{Author}
+Jascha Casadio 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.20130820 
+\end{DoxyVersion}
+\begin{DoxyReturn}{Returns}
+The rescaled Bitmap of the input image.
+\end{DoxyReturn}
+
+
+\hypertarget{classnet_1_1sourceforge_1_1cartdroonize_1_1Cartdroonize_a2245840b5632ebe6fda46c2d72a65e6b}{
+\index{net::sourceforge::cartdroonize::Cartdroonize@{net::sourceforge::cartdroonize::Cartdroonize}!getRescaledImageOutput@{getRescaledImageOutput}}
+\index{getRescaledImageOutput@{getRescaledImageOutput}!net::sourceforge::cartdroonize::Cartdroonize@{net::sourceforge::cartdroonize::Cartdroonize}}
+\subsubsection[{getRescaledImageOutput}]{\setlength{\rightskip}{0pt plus 5cm}Bitmap net::sourceforge::cartdroonize::Cartdroonize::getRescaledImageOutput ()\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classnet_1_1sourceforge_1_1cartdroonize_1_1Cartdroonize_a2245840b5632ebe6fda46c2d72a65e6b}
+
+
+Getter: returns the rescaled Bitmap of the output image. \begin{DoxyAuthor}{Author}
+Jascha Casadio 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.20130819 
+\end{DoxyVersion}
+\begin{DoxyReturn}{Returns}
+The rescaled Bitmap of the output (posterized) image.
+\end{DoxyReturn}
+
+
+\hypertarget{classnet_1_1sourceforge_1_1cartdroonize_1_1Cartdroonize_a6ffb29702adb9521fe9b3d68e312f18d}{
+\index{net::sourceforge::cartdroonize::Cartdroonize@{net::sourceforge::cartdroonize::Cartdroonize}!posterize@{posterize}}
+\index{posterize@{posterize}!net::sourceforge::cartdroonize::Cartdroonize@{net::sourceforge::cartdroonize::Cartdroonize}}
+\subsubsection[{posterize}]{\setlength{\rightskip}{0pt plus 5cm}void net::sourceforge::cartdroonize::Cartdroonize::posterize (int {\em posterization\_\-strength})\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classnet_1_1sourceforge_1_1cartdroonize_1_1Cartdroonize_a6ffb29702adb9521fe9b3d68e312f18d}
+
+
+Posterizes the input image with the given strength. \begin{DoxyAuthor}{Author}
+Jascha Casadio 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.20130821 
+\end{DoxyVersion}
+
+\begin{DoxyParams}{Parameters}
+\item[{\em posterization\_\-strength,:}]The strength of the posterization effect.\end{DoxyParams}
+
+
+\hypertarget{classnet_1_1sourceforge_1_1cartdroonize_1_1Cartdroonize_ae9ef33e35b95674d616d2a1e7bc527f2}{
+\index{net::sourceforge::cartdroonize::Cartdroonize@{net::sourceforge::cartdroonize::Cartdroonize}!rescaleImage@{rescaleImage}}
+\index{rescaleImage@{rescaleImage}!net::sourceforge::cartdroonize::Cartdroonize@{net::sourceforge::cartdroonize::Cartdroonize}}
+\subsubsection[{rescaleImage}]{\setlength{\rightskip}{0pt plus 5cm}Bitmap net::sourceforge::cartdroonize::Cartdroonize::rescaleImage (Bitmap {\em image}, \/  int {\em max\_\-size})\hspace{0.3cm}{\ttfamily  \mbox{[}inline, private\mbox{]}}}}
+\label{classnet_1_1sourceforge_1_1cartdroonize_1_1Cartdroonize_ae9ef33e35b95674d616d2a1e7bc527f2}
+
+
+Rescales the Bitmap preserving ratio. \begin{DoxyAuthor}{Author}
+Jascha Casadio 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.20130819 
+\end{DoxyVersion}
+
+\begin{DoxyParams}{Parameters}
+\item[{\em image,:}]The Bitmap of the image to rescale. \item[{\em max\_\-size,:}]The max size of the image (the larger between height and width). \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The rescaled Bitmap.
+\end{DoxyReturn}
+
+
+\hypertarget{classnet_1_1sourceforge_1_1cartdroonize_1_1Cartdroonize_a6b78247d653025ae6611f27b951d47dd}{
+\index{net::sourceforge::cartdroonize::Cartdroonize@{net::sourceforge::cartdroonize::Cartdroonize}!setImageMaxSize@{setImageMaxSize}}
+\index{setImageMaxSize@{setImageMaxSize}!net::sourceforge::cartdroonize::Cartdroonize@{net::sourceforge::cartdroonize::Cartdroonize}}
+\subsubsection[{setImageMaxSize}]{\setlength{\rightskip}{0pt plus 5cm}void net::sourceforge::cartdroonize::Cartdroonize::setImageMaxSize (int {\em in\_\-image\_\-max\_\-size})\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classnet_1_1sourceforge_1_1cartdroonize_1_1Cartdroonize_a6b78247d653025ae6611f27b951d47dd}
+
+
+Changes the max size of the images ti dusplay in the ImageView. This won't affect the size of the image itself. \begin{DoxyAuthor}{Author}
+Jascha Casadio 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.20130820 
+\end{DoxyVersion}
+
+\begin{DoxyParams}{Parameters}
+\item[{\em in\_\-image\_\-max\_\-size,:}]The new max size of the image.\end{DoxyParams}
+
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classnet_1_1sourceforge_1_1cartdroonize_1_1Cartdroonize_ae5315d354649c37ff7a683f3e1316263}{
+\index{net::sourceforge::cartdroonize::Cartdroonize@{net::sourceforge::cartdroonize::Cartdroonize}!image\_\-input@{image\_\-input}}
+\index{image\_\-input@{image\_\-input}!net::sourceforge::cartdroonize::Cartdroonize@{net::sourceforge::cartdroonize::Cartdroonize}}
+\subsubsection[{image\_\-input}]{\setlength{\rightskip}{0pt plus 5cm}Bitmap {\bf net::sourceforge::cartdroonize::Cartdroonize::image\_\-input}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{classnet_1_1sourceforge_1_1cartdroonize_1_1Cartdroonize_ae5315d354649c37ff7a683f3e1316263}
+\hypertarget{classnet_1_1sourceforge_1_1cartdroonize_1_1Cartdroonize_af10d9828c5247f7f12f453c1f7903799}{
+\index{net::sourceforge::cartdroonize::Cartdroonize@{net::sourceforge::cartdroonize::Cartdroonize}!image\_\-max\_\-size@{image\_\-max\_\-size}}
+\index{image\_\-max\_\-size@{image\_\-max\_\-size}!net::sourceforge::cartdroonize::Cartdroonize@{net::sourceforge::cartdroonize::Cartdroonize}}
+\subsubsection[{image\_\-max\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf net::sourceforge::cartdroonize::Cartdroonize::image\_\-max\_\-size}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{classnet_1_1sourceforge_1_1cartdroonize_1_1Cartdroonize_af10d9828c5247f7f12f453c1f7903799}
+The Bitmap that holds the output file \hypertarget{classnet_1_1sourceforge_1_1cartdroonize_1_1Cartdroonize_a60dad11dc13c083b5b092c2289a082af}{
+\index{net::sourceforge::cartdroonize::Cartdroonize@{net::sourceforge::cartdroonize::Cartdroonize}!image\_\-output@{image\_\-output}}
+\index{image\_\-output@{image\_\-output}!net::sourceforge::cartdroonize::Cartdroonize@{net::sourceforge::cartdroonize::Cartdroonize}}
+\subsubsection[{image\_\-output}]{\setlength{\rightskip}{0pt plus 5cm}Bitmap {\bf net::sourceforge::cartdroonize::Cartdroonize::image\_\-output}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{classnet_1_1sourceforge_1_1cartdroonize_1_1Cartdroonize_a60dad11dc13c083b5b092c2289a082af}
+The Bitmap that holds the input file 
+
+The documentation for this class was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+src/net/sourceforge/cartdroonize/\hyperlink{Cartdroonize_8java}{Cartdroonize.java}\end{DoxyCompactItemize}
