@@ -1,5 +1,12 @@
 package net.sourceforge.cartdroonize;
 
+/**
+ * This class provides methods used to process and manipulate an image file so 
+ * that it can be automatically turned into a cartoon like one.
+ * @author Jascha Casadio
+ * @version 0.20130825
+ */
+
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.util.Log;
@@ -7,9 +14,11 @@ import android.util.Log;
 
 public class Cartdroonize {
 	
-	private Bitmap image_input;
-	private Bitmap image_output;
-	private int image_max_size;
+	private Bitmap image_input; 	/** The Bitmap that holds the input file 	*/
+	private Bitmap image_output; 	/** The Bitmap that holds the output file 	*/
+	private int image_max_size;		/** The max size the image can have when 
+										displayed in the device. Does not 
+										affect the real size of the image 		*/
 	
 	public Cartdroonize(Bitmap in_image_input){
 		/** 
@@ -230,9 +239,6 @@ public class Cartdroonize {
 	
 	public void edgeDetection(){			
 		/** 
-		 * 
-		 * input: the_image, out_image, detect_type, threshold, high, rows, cols, bits_per_pixel
-		 * 
 		 * Detects the edges of the input image.
 		 * @author Jascha Casadio 
 		 * @version 0.20130822
