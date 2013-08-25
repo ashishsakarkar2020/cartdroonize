@@ -11,49 +11,6 @@ public class Cartdroonize {
 	private Bitmap image_output;
 	private int image_max_size;
 	
-	private class KirschMasks {
-		/**
-		 * Defines the eight 3x3 Kirsch's masks used to convolute an image.
-		 */
-		int[][] kirsch_mask_0 = {{ 5,  5, 5},  {-3, 0, -3}, {-3, -3, -3}};
-		int[][] kirsch_mask_1 = {{-3,  5, 5},  {-3, 0,  5}, {-3, -3, -3}};
-		int[][] kirsch_mask_2 = {{-3, -3, 5},  {-3, 0,  5}, {-3, -3,  5}};
-		int[][] kirsch_mask_3 = {{-3, -3, -3}, {-3, 0,  5}, {-3,  5,  5}};
-		int[][] kirsch_mask_4 = {{-3, -3, -3}, {-3, 0, -3}, { 5,  5,  5}};
-		int[][] kirsch_mask_5 = {{-3, -3, -3}, { 5, 0, -3}, { 5,  5, -3}};
-		int[][] kirsch_mask_6 = {{ 5, -3, -3}, { 5, 0, -3}, { 5, -3, -3}};
-		int[][] kirsch_mask_7 = {{ 5,  5, -3}, { 5, 0, -3}, {-3, -3, -3}};
-	}
-	
-	private class PrewittMasks {
-		/**
-		 * Defines the eight 3x3 Prewitt's masks used to convolute an image.
-		 */
-		int[][] prewitt_mask_0 = {{ 1,  1,  1}, { 1, -2,  1}, {-1, -1, -1}};
-		int[][] prewitt_mask_1 = {{ 1,  1,  1}, { 1, -2, -1}, { 1, -1, -1}};
-		int[][] prewitt_mask_2 = {{ 1,  1, -1}, { 1, -2, -1}, { 1,  1, -1}};
-		int[][] prewitt_mask_3 = {{ 1, -1, -1}, { 1, -2, -1}, { 1,  1,  1}};
-		int[][] prewitt_mask_4 = {{-1, -1, -1}, { 1, -2,  1}, { 1,  1,  1}};
-		int[][] prewitt_mask_5 = {{-1, -1,  1}, {-1, -2,  1}, { 1,  1,  1}};
-		int[][] prewitt_mask_6 = {{-1,  1,  1}, {-1, -2,  1}, {-1,  1,  1}};
-		int[][] prewitt_mask_7 = {{ 1,  1,  1}, {-1, -2,  1}, {-1, -1,  1}};
-	}
-	
-	private class SobelMasks {
-		/**
-		 * Defines the eight 3x3 Sobel's masks used to convolute an image.
-		 */
-		int[][] sobel_mask_0 = {{ 1,  2,  1},{ 0, 0,  0},{-1, -2, -1}};
-		int[][] sobel_mask_1 = {{ 2,  1,  0},{ 1, 0, -1},{ 0, -1, -2}};
-		int[][] sobel_mask_2 = {{ 1,  0, -1},{ 2, 0, -2},{ 1,  0, -1}};
-		int[][] sobel_mask_3 = {{ 0, -1, -2},{ 1, 0, -1},{ 2,  1,  0}};
-		int[][] sobel_mask_4 = {{-1, -2, -1},{ 0, 0,  0},{ 1,  2,  1}};
-		int[][] sobel_mask_5 = {{-2, -1,  0},{-1, 0,  1},{ 0,  1,  2}};
-		int[][] sobel_mask_6 = {{-1,  0,  1},{-2, 0,  2},{-1,  0,  1}};
-		int[][] sobel_mask_7 = {{ 0,  1,  2},{-1, 0,  1},{-2, -1,  0}};
-	}
-	
-	
 	public Cartdroonize(Bitmap in_image_input){
 		/** 
 		 * Instantiates Cartdroonize with a mutable Bitmap.
@@ -118,7 +75,7 @@ public class Cartdroonize {
 		int[][]mask_7 = {{ 5,  5, -3}, { 5, 0, -3}, {-3, -3, -3}};
 		
 		/* clear output image array */
-		this.image_input = clearImage(this.image_input);
+		//this.image_input = clearImage(this.image_input);
 		
 		for(int i=1; i<this.image_input.getWidth()-1; i++){
 			for(int j=1; j<this.image_input.getHeight()-1; j++){
@@ -234,10 +191,9 @@ public class Cartdroonize {
 				if(sum > this.image_input.getPixel(i, j)){
 					this.image_input.setPixel(i, j, sum);
 				}
-			} /* ends loop over j */
-		} /* ends loop over i */
+			}
+		}
 		
-		/* threshold the output image */
 		if(threshold == 1){
 			for(int i=0; i<this.image_input.getWidth(); i++){
 				for(int j=0; j<this.image_input.getHeight(); j++){
@@ -250,10 +206,9 @@ public class Cartdroonize {
 					}
 				}
 			}
-} 
+	} 
 	
-	public void edgeDetection(){
-				
+	public void edgeDetection(){			
 		/** 
 		 * 
 		 * input: the_image, out_image, detect_type, threshold, high, rows, cols, bits_per_pixel
@@ -262,9 +217,8 @@ public class Cartdroonize {
 		 * @author Jascha Casadio 
 		 * @version 0.20130822
 		 */
-		this.edgeConvolution(0,100); //all input
+		this.edgeConvolution(1,40); //all input
 		//this.edgeFixEdges(); //out_image, 1, rows, cols
-		
 	}
 	
 	private void edgeEnhancement(){
@@ -280,12 +234,6 @@ public class Cartdroonize {
 		 * Restores the border of the image after convolution.
 		 * @author Jascha Casadio 
 		 * @version 0.20130822
-		 */
-	}
-	
-	private void edgeSetupMask(int mask_type){
-		/**
-		 * 
 		 */
 	}
 	

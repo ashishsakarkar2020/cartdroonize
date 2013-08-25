@@ -45,8 +45,8 @@ public class SandBox extends Activity implements OnClickListener {
 					bmp = BitmapFactory.decodeStream(getContentResolver().openInputStream(imageFileUri), null, bmpFactoryOptions);
 					
 					Cartdroonize img = new Cartdroonize(bmp, max_size);
-					img.posterize(30);
-					//img.edgeDetection();
+					img.blackAndWhite();
+					//img.posterize(30);
 					chosenImageView.setImageBitmap(img.getRescaledImageInput());
 					}
 				catch(FileNotFoundException e) {}
