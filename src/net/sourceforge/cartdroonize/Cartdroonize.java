@@ -34,6 +34,26 @@ public class Cartdroonize {
 		this.image_max_size = in_image_max_size;
 	}
 	
+	public void blackAndWhite(){
+		/** 
+		 * Turns the image into grayscale using the lightness method.
+		 * @author Jascha Casadio 
+		 * @version 0.20130825
+		 */
+		for(int i = 0; i < this.image_input.getWidth(); i++){
+			for(int j = 0;j < this.image_input.getHeight(); j++){  
+				int pixel = this.image_input.getPixel(i, j);
+				int red_current = Color.red(pixel);
+				int green_current = Color.green(pixel);
+				int blue_current = Color.blue(pixel);
+				int max = Math.max(red_current, Math.max(green_current, blue_current));
+				int min = Math.min(red_current, Math.min(green_current, blue_current));
+				int avg = (int)(max + min) / 2;
+                this.image_input.setPixel(i, j, Color.rgb(avg,avg,avg));
+			}
+		}
+	}
+	
 	private Bitmap clearImage(Bitmap image){
 		/**
 		 * Clears a Bitmap setting all its pixels to (255,255,255).
