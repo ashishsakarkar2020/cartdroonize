@@ -46,6 +46,7 @@ public class SandBox extends Activity implements OnClickListener {
 					
 					Cartdroonize img = new Cartdroonize(bmp, max_size);
 					img.blackAndWhite();
+					img.invertColors();
 					//img.posterize(30);
 					chosenImageView.setImageBitmap(img.getRescaledImageInput());
 					}

@@ -8,7 +8,11 @@ package net.sourceforge.cartdroonize;
  */
 
 import android.graphics.Bitmap;
+import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.ColorMatrix;
+import android.graphics.ColorMatrixColorFilter;
+import android.graphics.Paint;
 import android.util.Log;
 
 
@@ -50,7 +54,7 @@ public class Cartdroonize {
 		 * @version 0.20130825
 		 */
 		for(int i = 0; i < image_input.getWidth(); i++){
-			for(int j = 0;j < .image_input.getHeight(); j++){  
+			for(int j = 0;j < image_input.getHeight(); j++){  
 				int pixel = image_input.getPixel(i, j);
 				int red_current = Color.red(pixel);
 				int green_current = Color.green(pixel);
@@ -58,7 +62,7 @@ public class Cartdroonize {
 				int max = Math.max(red_current, Math.max(green_current, blue_current));
 				int min = Math.min(red_current, Math.min(green_current, blue_current));
 				int avg = (int)(max + min) / 2;
-                this.image_input.setPixel(i, j, Color.rgb(avg,avg,avg));
+                image_input.setPixel(i, j, Color.rgb(avg,avg,avg));
 			}
 		}
 	}
@@ -281,7 +285,7 @@ public class Cartdroonize {
 		 * @version 0.20130821
 		 * @return The input Bitmap of the image.
 		 */
-		return this.image_input;
+		return image_input;
 	}
 	
 	public Bitmap getImageOutput(){
@@ -291,7 +295,7 @@ public class Cartdroonize {
 		 * @version 0.20130821
 		 * @return The Bitmap of the output (posterized) image.
 		 */
-		return this.image_output;
+		return image_output;
 	}
 	
 	public Bitmap getRescaledImageInput(){
@@ -312,6 +316,25 @@ public class Cartdroonize {
 		 * @return The rescaled Bitmap of the output (posterized) image.
 		 */
 		return rescaleImage(image_output, image_max_size);
+	}
+	
+	public void invertColors(){
+		/**
+		 * Inverts the colors of the given mutable Bitmap.
+		 * @author Jascha Casadio
+		 * @version 0.20130829
+		 * @param image: The input mutable Bitmap.
+		 */
+		Canvas c = new Canvas(image_input);
+		Paint p = new Paint();
+		float invert_matrix[] = 	{	
+									-1.0f, 0.0f,  0.0f, 1.0f, 1.0f,
+							 		0.0f,  -1.0f, 0.0f, 1.0f, 1.0f,
+							 		0.0f,  0.0f, -1.0f, 1.0f, 1.0f, 
+							 		0.0f,  0.0f,  0.0f, 1.0f, 0.0f
+						 			};
+		p.setColorFilter(new ColorMatrixColorFilter(new ColorMatrix(invert_matrix)));
+		c.drawBitmap(image_input, 0, 0, p);
 	}
 	
 	public void posterize(int posterization_strength){
